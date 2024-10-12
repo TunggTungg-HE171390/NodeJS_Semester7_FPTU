@@ -1,0 +1,36 @@
+{
+  "expo": {
+    "name": "Asignment1",
+    "slug": "Asignment1",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "Ứng dụng cần truy cập camera để chụp ảnh.",
+        "NSLocationWhenInUseUsageDescription": "Ứng dụng cần truy cập vị trí của bạn để gắn vào ảnh."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+    "permissions": [
+      "camera",
+      "camera roll",
+      "location"
+    ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
