@@ -39,20 +39,39 @@ const App = () => {
   }, []);
 
   const pickImage = async () => {
-    let result = await ImagePicker.launchCameraAsync({    //Mở camera
+    // Kiểm tra quyền camera
+    const { status } = await ImagePicker.requestCameraPermissionsAsync();
+    if (status !== "granted") {
+      Alert.alert("Bạn cần cấp quyền sử dụng camera để sử dụng tính năng này!");
+      return;
+    }
+
+    let result = await ImagePicker.launchCameraAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
       allowsEditing: true,
-      aspect: [4, 3], //quản lý định dạng và chất lượng ảnh
+      aspect: [4, 3],
       quality: 1,
-    });  
+    });
 
     if (!result.canceled) {
       const uri = result.assets[0].uri;
       const newImages = [...images, uri];
       setImages(newImages);
       await AsyncStorage.setItem("images", JSON.stringify(newImages));
-    }////mảng này được lưu vào bộ nhớ cục bộ bằng AsyncStorage.setItem.
+    }
   };
+
+  const requestPermissions = async () => {
+    const { status: cameraStatus } = await ImagePicker.requestCameraPermissionsAsync();
+    const { status: mediaLibraryStatus } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+
+    if (cameraStatus !== 'granted' || mediaLibraryStatus !== 'granted') {
+      Alert.alert("Ứng dụng cần quyền truy cập camera và thư viện ảnh!");
+      return false;
+    }
+    return true;
+  };
+
 
   //Hàm này tải ảnh từ bộ nhớ
   const loadImages = async () => {

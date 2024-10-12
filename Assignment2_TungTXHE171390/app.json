@@ -14,8 +14,8 @@
     "ios": {
       "supportsTablet": true,
       "infoPlist": {
-        "NSCameraUsageDescription": "Ứng dụng cần truy cập camera để chụp ảnh.",
-        "NSLocationWhenInUseUsageDescription": "Ứng dụng cần truy cập vị trí của bạn để gắn vào ảnh."
+        "NSCameraUsageDescription": "Ứng dụng này cần quyền truy cập camera để chụp ảnh.",
+        "NSLocationWhenInUseUsageDescription": "Ứng dụng này cần quyền truy cập vị trí của bạn để hiển thị vị trí trên bản đồ."
       }
     },
     "android": {
@@ -23,11 +23,11 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-    "permissions": [
-      "camera",
-      "camera roll",
-      "location"
-    ]
+      "permissions": [
+        "camera",
+        "camera roll",
+        "location"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
